@@ -66,20 +66,6 @@ static inline double fastlog(double x)
     return M_LN2 * (double) exp + fastlog_lookup[man];
 }
 
-#if 0
-inline static double fastlog(double x)
-{
-    int exp;
-    fi_t y;
-    y.f = frexp(x, &exp);
-    //register const int64_t  exp  = (((fi_t)x).si >> 52) - 1023;
-    //register const uint64_t man  = (((fi_t)x).ui & fastlog_man_mask) >> fastlog_man_offset;
-
-    return M_LN2 * (double) exp + fastlog_lookup[y.ui];
-}
-#endif
-
-
 #ifdef __cplusplus
 }
 #endif

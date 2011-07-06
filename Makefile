@@ -1,5 +1,5 @@
 
-CFLAGS=-Wall -Wextra -g -O3 -ffast-math
+CFLAGS=-Wall -Wextra -std=c99 -pedantic -g -O3 -ffast-math
 
 all : fastlog_test
 

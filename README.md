@@ -4,11 +4,11 @@ fastlog
 
 Overview
 --------
-This is an implementation of the natural logrothim function in C (as in the
-`log` function from 'math.h'). It is, in my tests, about three times faster than
-the standard library log function on gcc 4.5. The tradeoff is that one must limit
-the precision to k bits, and build a lookup table of using 2^(k+2) bytes of
-memory.
+This is an implementation of the natural logarithm function in C (as in the
+`log` function from 'math.h'). It is, in my tests, an order of magnitude faster
+than the standard library log function on gcc 4.5. The tradeoff is that one must
+limit the precision to k bits, and build a lookup table of using 2^(k+2) bytes
+of memory.
 
 The idea is really very simple. A floating point number x is represented as
 `x = u * 2 ^ k`. So the natural logarithm is,

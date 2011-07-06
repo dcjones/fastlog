@@ -45,20 +45,7 @@ extern "C" {
 void fastlog_init(int prec);
 void fastlog_free();
 double fastlog(double x);
-double fastlog_asm(double x);
-
-typedef union
-{
-    double   f;
-    uint64_t ui;
-    int64_t  si;
-} fi_t;
-
-extern double* fastlog_lookup;
-extern uint64_t fastlog_man_offset;
-static const uint64_t fastlog_exp_mask = 0x7ff0000000000000;
-static const uint64_t fastlog_man_mask = 0x000fffffffffffff;
-
+/* double fastlog_asm(double x); */
 
 
 #ifdef __cplusplus

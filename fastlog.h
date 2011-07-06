@@ -44,6 +44,8 @@ extern "C" {
 
 void fastlog_init(int prec);
 void fastlog_free();
+double fastlog(double x);
+double fastlog_asm(double x);
 
 typedef union
 {
@@ -53,18 +55,11 @@ typedef union
 } fi_t;
 
 extern double* fastlog_lookup;
-extern unsigned int fastlog_man_offset;
+extern uint64_t fastlog_man_offset;
 static const uint64_t fastlog_exp_mask = 0x7ff0000000000000;
 static const uint64_t fastlog_man_mask = 0x000fffffffffffff;
 
 
-static inline double fastlog(double x)
-{
-    register const int exp  = ((int) (((fi_t)x).si >> 52)) - 1023;
-    register const uint64_t man  = (((fi_t)x).ui & fastlog_man_mask) >> fastlog_man_offset;
-
-    return M_LN2 * (double) exp + fastlog_lookup[man];
-}
 
 #ifdef __cplusplus
 }
